@@ -2,9 +2,54 @@ import "./styles/Work.css";
 import WorkImage from "./WorkImage";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { useGSAP } from "@gsap/react"; // ✅ correct import
+import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
+
+const projects = [
+  {
+    id: 1,
+    name: "Velaris Dashboard",
+    category: "SaaS",
+    tools: "React, Node.js, Redux, Sass, CSS, HTML, Express, AWS, PostgreSQL, Redis",
+    image: "/images/velaris.png",
+  },
+  {
+    id: 2,
+    name: "Office Dashboard",
+    category: "Sri Lanka Railways",
+    tools: "Next.js, Nest.js, Redux, PostgreSQL, Keycloak, Redis, Kubernetes, Docker",
+    image: "/images/railwaysback.png",
+  },
+  {
+    id: 3,
+    name: "Customer Dashboard",
+    category: "Sri Lanka Railways",
+    tools: "Next.js, React, Zustand, TailwindCSS",
+    image: "/images/customerrailway.png",
+  },
+  {
+    id: 4,
+    name: "Chat App",
+    category: "Realtime",
+    tools: "React, Firebase, WebSockets",
+    image: "/images/chat.png",
+  },
+  // {
+  //   id: 5,
+  //   name: "Analytics Dashboard",
+  //   category: "OctopusBI",
+  //   tools: "React, Node, Styled Components, Chart.js",
+  //   image: "/images/analytics.png",
+  // },
+  {
+    id: 6,
+    name: "AI Image Generator",
+    category: "AI/ML",
+    tools: "Python, Flask, TensorFlow, Pandas, NumPy",
+    image: "/images/ai.png",
+  },
+];
 
 const Work = () => {
   useGSAP(() => {
@@ -40,7 +85,6 @@ const Work = () => {
       ease: "none",
     });
 
-    // ✅ cleanup
     return () => {
       timeline.kill();
       ScrollTrigger.getById("work")?.kill();
@@ -54,20 +98,20 @@ const Work = () => {
           My <span>Work</span>
         </h2>
         <div className="work-flex">
-          {[...Array(6)].map((_value, index) => (
-            <div className="work-box" key={index}>
+          {projects.map((project, index) => (
+            <div className="work-box" key={project.id}>
               <div className="work-info">
                 <div className="work-title">
                   <h3>0{index + 1}</h3>
                   <div>
-                    <h4>Project Name</h4>
-                    <p>Category</p>
+                    <h4>{project.name}</h4>
+                    <p>{project.category}</p>
                   </div>
                 </div>
-                <h4>Tools and features</h4>
-                <p>Javascript, TypeScript, React, Threejs</p>
+                <h4>Tools and Features</h4>
+                <p>{project.tools}</p>
               </div>
-              <WorkImage image="/images/placeholder.webp" alt="" />
+              <WorkImage image={project.image} alt={project.name} />
             </div>
           ))}
         </div>
