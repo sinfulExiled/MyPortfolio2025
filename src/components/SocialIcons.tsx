@@ -1,11 +1,6 @@
-import {
-  FaGithub,
-  FaInstagram,
-  FaLinkedinIn,
-  // FaXTwitter,
-} from "react-icons/fa6";
-import "./styles/SocialIcons.css";
+import { FaGithub, FaInstagram, FaLinkedinIn } from "react-icons/fa6";
 import { TbNotes } from "react-icons/tb";
+import "./styles/SocialIcons.css";
 import { useEffect } from "react";
 import HoverLinks from "./HoverLinks";
 
@@ -56,6 +51,19 @@ const SocialIcons = () => {
     });
   }, []);
 
+  const handleResumeDownload = () => {
+    const resumeUrl = `${
+      import.meta.env.BASE_URL
+    }resume/AshainSiriwardane_Resume.pdf`;
+
+    const link = document.createElement("a");
+    link.href = resumeUrl;
+    link.download = "AshainSiriwardane_Resume.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   return (
     <div className="icons-section">
       <div className="social-icons" data-cursor="icons" id="social">
@@ -65,27 +73,29 @@ const SocialIcons = () => {
           </a>
         </span>
         <span>
-          <a href="https://www.linkedin.com/in/ashain-siriwardane-1a861785/" target="_blank">
+          <a
+            href="https://www.linkedin.com/in/ashain-siriwardane-1a861785/"
+            target="_blank"
+          >
             <FaLinkedinIn />
           </a>
         </span>
-        {/* <span>
-          <a href="https://x.com" target="_blank">
-            <FaXTwitter />
-          </a>
-        </span> */}
         <span>
-          <a href="https://www.instagram.com/ashainsiriwardana?igsh=d2tibDNwNzh1ZTAz" target="_blank">
+          <a
+            href="https://www.instagram.com/ashainsiriwardana?igsh=d2tibDNwNzh1ZTAz"
+            target="_blank"
+          >
             <FaInstagram />
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#">
+
+      <button className="resume-button" onClick={handleResumeDownload}>
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />
         </span>
-      </a>
+      </button>
     </div>
   );
 };
