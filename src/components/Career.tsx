@@ -41,12 +41,25 @@ const Career = () => {
                 <h4>Senior Software Engineer</h4>
                 <h5>Velaris</h5>
               </div>
-              <h3>NOW</h3>
+              <h3>2025</h3>
             </div>
             <p>
               Senior Software Engineer - Full Stack Developer working in
               designing systems for both front end and backend. Scrum master and
               team lead experience.
+            </p>
+          </div>
+          <div className="career-info-box">
+            <div className="career-info-in">
+              <div className="career-role">
+                <h4>Consultant Senior Software Engineer</h4>
+                <h5>Allion Technologies</h5>
+              </div>
+              <h3>NOW</h3>
+            </div>
+            <p>
+              Consultant Software Engineer - Full Stack Developer working in
+              Banking, Finance, Integration and Management Systems.
             </p>
           </div>
         </div>
