@@ -54,11 +54,11 @@ const SocialIcons = () => {
   const handleResumeDownload = () => {
     const resumeUrl = `${
       import.meta.env.BASE_URL
-    }resume/AshainSiriwardane_Resume.pdf`;
+    }resume/AshainSiriwardane_Resume_2026.pdf`;
 
     const link = document.createElement("a");
     link.href = resumeUrl;
-    link.download = "AshainSiriwardane_Resume.pdf";
+    link.download = "AshainSiriwardane_Resume_2026.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
