@@ -1,12 +1,33 @@
 import * as THREE from "three";
 import gsap from "gsap";
 
+// setCharTimeline / setAllTimeline are called on every character load and on
+// every resize (and twice under React StrictMode in dev). Without tracking,
+// each call leaks a flicker interval, an infinite screen-light timeline, and a
+// fresh set of ScrollTrigger timelines. Keep references module-side and tear
+// the previous ones down before rebuilding.
+let intensityInterval: ReturnType<typeof setInterval> | undefined;
+let screenLightTl: gsap.core.Timeline | undefined;
+let charTimelines: gsap.core.Timeline[] = [];
+let careerTl: gsap.core.Timeline | undefined;
+
+function killTimeline(tl: gsap.core.Timeline | undefined) {
+  tl?.scrollTrigger?.kill();
+  tl?.kill();
+}
+
 export function setCharTimeline(
   character: THREE.Object3D<THREE.Object3DEventMap> | null,
   camera: THREE.PerspectiveCamera
 ) {
+  if (intensityInterval) clearInterval(intensityInterval);
+  killTimeline(screenLightTl);
+  screenLightTl = undefined;
+  charTimelines.forEach(killTimeline);
+  charTimelines = [];
+
   let intensity: number = 0;
-  setInterval(() => {
+  intensityInterval = setInterval(() => {
     intensity = Math.random();
   }, 200);
   const tl1 = gsap.timeline({
@@ -52,14 +73,18 @@ export function setCharTimeline(
       object.material.transparent = true;
       object.material.opacity = 0;
       object.material.emissive.set("#C8BFFF");
-      gsap.timeline({ repeat: -1, repeatRefresh: true }).to(object.material, {
-        emissiveIntensity: () => intensity * 8,
-        duration: () => Math.random() * 0.6,
-        delay: () => Math.random() * 0.1,
-      });
+      screenLightTl = gsap
+        .timeline({ repeat: -1, repeatRefresh: true })
+        .to(object.material, {
+          emissiveIntensity: () => intensity * 8,
+          duration: () => Math.random() * 0.6,
+          delay: () => Math.random() * 0.1,
+        });
       screenLight = object;
     }
   });
+  charTimelines = [tl1, tl2, tl3];
+
   let neckBone = character?.getObjectByName("spine005");
   if (window.innerWidth > 1024) {
     if (character) {
@@ -128,11 +153,13 @@ export function setCharTimeline(
         },
       });
       tM2.to(".what-box-in", { display: "flex", duration: 0.1, delay: 0 }, 0);
+      charTimelines.push(tM2);
     }
   }
 }
 
 export function setAllTimeline() {
+  killTimeline(careerTl);
   const careerTimeline = gsap.timeline({
     scrollTrigger: {
       trigger: ".career-section",
@@ -142,6 +169,7 @@ export function setAllTimeline() {
       invalidateOnRefresh: true,
     },
   });
+  careerTl = careerTimeline;
   careerTimeline
     .fromTo(
       ".career-timeline",

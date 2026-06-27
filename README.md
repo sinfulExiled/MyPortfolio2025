@@ -1,10 +1,7 @@
 # My Portfolio Wesbite - Overview 🚀
 
-This repository contains the open source version of my porfolio website.
-Do check it out!
+after committing 
+npm run deploy
 
-**Techstack** - React, TypeScript, GSAP, ThreeJS, WebGL, HTML, Css, JavaScript
-
-## License
-
+we can change the feature branch deployment here with changing workflows ghpages.yml
 This project is open source and available under the [MIT License](LICENSE).
