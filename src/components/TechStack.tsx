@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import { useRef, useMemo, useState, useEffect } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import { EffectComposer, N8AO } from "@react-three/postprocessing";
 import {
@@ -11,7 +11,6 @@ import {
   RapierRigidBody,
 } from "@react-three/rapier";
 
-const textureLoader = new THREE.TextureLoader();
 const imageUrls = [
   "images/react2.webp",
   "images/next2.webp",
@@ -22,7 +21,6 @@ const imageUrls = [
   "images/typescript.webp",
   "images/javascript.webp",
 ];
-const textures = imageUrls.map((url) => textureLoader.load(url));
 
 const sphereGeometry = new THREE.SphereGeometry(1, 28, 28);
 
@@ -151,6 +149,7 @@ const TechStack = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  const textures = useLoader(THREE.TextureLoader, imageUrls);
   const materials = useMemo(() => {
     return textures.map(
       (texture) =>
@@ -164,7 +163,7 @@ const TechStack = () => {
           clearcoat: 0.1,
         })
     );
-  }, []);
+  }, [textures]);
 
   return (
     <div className="techstack">

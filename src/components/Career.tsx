@@ -15,14 +15,15 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Software Engineer</h4>
-                <h5>Siuex</h5>
+                <h4>Founder & Software Engineer</h4>
+                <h5>SIUEX</h5>
               </div>
               <h3>2020</h3>
             </div>
             <p>
-              Free-lance work and remote work for various clients, companies and
-              startups.
+              Founded SIUEX, delivering end-to-end Hospital, Event and
+              Restaurant management systems with microservices, plus a dual-mode
+              medical SaaS platform for opticals and pharmacies.
             </p>
           </div>
           <div className="career-info-box">
@@ -33,7 +34,11 @@ const Career = () => {
               </div>
               <h3>2021</h3>
             </div>
-            <p>Software Engineer - Full Stack Developer - Frontend Developer</p>
+            <p>
+              Built multi-tenant React analytics dashboards adopted by 200+
+              schools and 2,000+ users across Australia, integrated with Canvas
+              LMS and Google Classroom.
+            </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
@@ -41,25 +46,27 @@ const Career = () => {
                 <h4>Senior Software Engineer</h4>
                 <h5>Velaris</h5>
               </div>
-              <h3>2025</h3>
+              <h3>2022</h3>
             </div>
             <p>
-              Senior Software Engineer - Full Stack Developer working in
-              designing systems for both front end and backend. Scrum master and
-              team lead experience.
+              Owned core areas of a B2B customer-success SaaS — including a
+              flagship drag-and-drop workflow builder — across React, Node.js and
+              PostgreSQL on AWS, while mentoring developers and shaping
+              architecture.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Consultant Senior Software Engineer</h4>
+                <h4>Tech Lead</h4>
                 <h5>Allion Technologies</h5>
               </div>
               <h3>NOW</h3>
             </div>
             <p>
-              Consultant Software Engineer - Full Stack Developer working in
-              Banking, Finance, Integration and Management Systems.
+              Leading delivery of a low-code orchestration platform for banking
+              and insurance on Azure (Service Bus & Durable Functions), plus
+              AI/RAG pipelines powered by Claude and GPT.
             </p>
           </div>
         </div>

@@ -55,13 +55,22 @@ const Contact = () => {
             >
               Instagram <MdArrowOutward />
             </a>
+            <a
+              href="resume/AshainSiriwardane_Resume_2026.pdf"
+              download="Ashain_Siriwardane_CV.pdf"
+              target="_blank"
+              data-cursor="disable"
+              className="contact-social"
+            >
+              Résumé <MdArrowOutward />
+            </a>
           </div>
           <div className="contact-box">
             <h2>
               Designed and Developed <br /> by <span>Ashain Siriwardane</span>
             </h2>
             <h5>
-              <MdCopyright /> 2025
+              <MdCopyright /> 2026
             </h5>
           </div>
         </div>

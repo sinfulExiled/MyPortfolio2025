@@ -87,21 +87,22 @@ const WhatIDo = () => {
             <div className="what-corner"></div>
 
             <div className="what-content-in">
-              <h3>DEVELOP</h3>
+              <h3>BUILD & LEAD</h3>
               <h4>Description</h4>
               <p>
-                Creating modern, scalable web applications that balance architectural design, 
-                scalability and performance best solutions. 
+                Architecting and delivering scalable SaaS, cloud-native and
+                AI-powered systems — leading teams, driving system design and
+                shipping clean, maintainable code.
               </p>
               <h5>Skillset & tools</h5>
               <div className="what-content-flex">
-                <div className="what-tags">JavaScript</div>
                 <div className="what-tags">TypeScript</div>
                 <div className="what-tags">Node.js</div>
                 <div className="what-tags">Next.js</div>
-                <div className="what-tags">Express.js</div>
                 <div className="what-tags">Nest.js</div>
                 <div className="what-tags">PostgreSQL</div>
+                <div className="what-tags">AWS / Azure</div>
+                <div className="what-tags">LLMs / RAG</div>
               </div>
               <div className="what-arrow"></div>
             </div>

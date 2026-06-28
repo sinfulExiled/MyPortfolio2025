@@ -6,13 +6,15 @@ const About = () => {
       <div className="about-me">
         <h3 className="title">About Me</h3>
         <p className="para">
-          I'm Ashain Siriwardane, a passionate full-stack developer and
-          designer based in Sri Lanka. With a knack for creating visually
-          appealing and user-friendly digital experiences, I specialize in
-          both front-end and back-end development. My expertise includes HTML,
-          CSS, JavaScript, TypeScript, Nextjs, React, Node.js, Nest.js, and database management. I thrive on
-          turning ideas into reality through code and design, always aiming to
-          deliver high-quality solutions that exceed expectations.
+          I'm Ashain Siriwardane, a Tech Lead and full-stack engineer based in
+          Sri Lanka with 6+ years of experience designing and delivering
+          scalable SaaS products, e-commerce platforms, and cloud-native
+          enterprise systems. I lead small engineering teams, drive system
+          architecture decisions, and mentor developers, with deep expertise
+          across React, Next.js, Node.js, NestJS and TypeScript on AWS and
+          Azure. Lately I've been building AI-powered systems with LLMs and
+          Retrieval-Augmented Generation (RAG), turning complex business
+          requirements into clean, maintainable solutions.
         </p>
       </div>
     </div>
