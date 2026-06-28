@@ -6,41 +6,74 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger, useGSAP);
 
-const projects = [
+type Project = {
+  id: number;
+  name: string;
+  category: string;
+  tools: string;
+  images: string[];
+  link?: string;
+};
+
+const projects: Project[] = [
   {
     id: 1,
-    name: "Customer Success Platform",
-    category: "Velaris · B2B SaaS",
-    tools: "React, Node.js, Redux, PostgreSQL, AWS, Sass, Drag-and-drop Workflows",
-    image: "images/velaris.png",
+    name: "Siuex Medical · OpticCare",
+    category: "SIUEX · Optical & Pharmacy SaaS",
+    tools: "React, Vite, Zustand, Node.js, Express, PostgreSQL, Claude AI, Stripe",
+    images: ["images/opticcare.webp"],
+    link: "https://www.siuex.com/",
   },
   {
     id: 2,
-    name: "Back-Office Platform",
-    category: "Sri Lanka Railways",
-    tools: "Next.js, Nest.js, PostgreSQL, Keycloak, Redis, Kubernetes, Docker",
-    image: "images/railwaysback.png",
+    name: "Ceylon Bedding & Co.",
+    category: "Allion · Luxury Bedding E-Commerce",
+    tools: "Next.js, React 19, NestJS, Prisma, PostgreSQL, Stripe, Socket.io, Genkit AI",
+    images: ["images/ceylonbedding.webp", "images/ceylonbedding-shop.webp"],
+    link: "https://www.ceylonbedding.com/",
   },
   {
     id: 3,
-    name: "Customer Portal",
-    category: "Sri Lanka Railways",
-    tools: "Next.js, React, Zustand, TailwindCSS",
-    image: "images/customerrailway.png",
+    name: "Prime Wagyu E-Commerce",
+    category: "Allion · Premium Food Marketplace",
+    tools: "Next.js 15, NestJS, PostgreSQL, Redis, Stripe, Socket.io, Genkit AI, Monorepo",
+    images: ["images/wagyu.webp", "images/wagyu-shop.webp"],
+    link: "https://wagyunokiwami.com/",
   },
   {
     id: 4,
-    name: "School Analytics Dashboards",
-    category: "OctopusBI · 200+ Schools",
-    tools: "React, Next.js, Redux, Ant Design, RBAC, Multi-Tenant",
-    image: "images/analytics.png",
+    name: "Customer Success Platform",
+    category: "Velaris · B2B SaaS",
+    tools: "React, Node.js, Redux, PostgreSQL, AWS, Sass, Drag-and-drop Workflows",
+    images: ["images/velaris.png"],
   },
   {
     id: 5,
+    name: "Back-Office Platform",
+    category: "Sri Lanka Railways",
+    tools: "Next.js, Nest.js, PostgreSQL, Keycloak, Redis, Kubernetes, Docker",
+    images: ["images/railwaysback.png"],
+  },
+  {
+    id: 6,
+    name: "Customer Portal",
+    category: "Sri Lanka Railways",
+    tools: "Next.js, React, Zustand, TailwindCSS",
+    images: ["images/customerrailway.png"],
+  },
+  {
+    id: 7,
+    name: "School Analytics Dashboards",
+    category: "OctopusBI · 200+ Schools",
+    tools: "React, Next.js, Redux, Ant Design, RBAC, Multi-Tenant",
+    images: ["images/analytics.png"],
+  },
+  {
+    id: 8,
     name: "AI Glasses Try-On",
     category: "AI / ML",
     tools: "Python, TensorFlow, Deep Learning, Computer Vision",
-    image: "images/ai.png",
+    images: ["images/ai.png"],
   },
 ];
 
@@ -104,7 +137,11 @@ const Work = () => {
                 <h4>Tools and Features</h4>
                 <p>{project.tools}</p>
               </div>
-              <WorkImage image={project.image} alt={project.name} />
+              <WorkImage
+                images={project.images}
+                alt={project.name}
+                link={project.link}
+              />
             </div>
           ))}
         </div>
